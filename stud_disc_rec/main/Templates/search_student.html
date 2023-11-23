@@ -1,0 +1,21 @@
+{%extends 'base.html' %}
+
+{%block content %}
+
+<center>
+    {% if searched %}
+    <h1> You searched for</h1> 
+    <br/>
+    {% for student in students %}
+        <a href="{% url 'student' student.Stud_ID %}">{{student.Stud_ID}} </a> <h1>{{student.FName}}  {{student.LName}}</h1>
+    {% endfor %}
+    {% else %}
+    
+    <h1> hey you forgot to search</h1>
+
+    {% endif %}
+</center>
+
+
+{% endblock %}
+{% url 'student' pk=student.Stud_ID.pk %}

@@ -1,0 +1,24 @@
+{%extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: white; width:1200px; " >
+  <form class="d-flex" method=POST role="search" action="{% url 'search-student'%}" style="position:relative; left:550px;">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Search student" aria-label="Search" name="searched" style="width:500px;">
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+  </form>
+</nav>
+<h1>Student with offense</h1>
+{% for stud in record %}
+<div class="card">
+    <!--<div class="card-header">
+      <strong></strong>
+    </div>-->
+    <div class="card-body">
+      <h5 class="card-title"> <a href="{% url 'student' pk=stud.Stud_ID.pk %}" > {{stud.Stud_ID.FName}} {{stud.Stud_ID.LName}}  </a></h5>
+      <p class="card-text"><b>student id:</b> {{stud.Stud_ID.Stud_ID}}  <b>Incident:  </b> {{stud.Incident_No.Descr}} <br><br>{{stud.Case_Status}}<br/> <br/></p>
+    </div>
+  </div>  
+{% endfor %}
+{% endblock %}
+

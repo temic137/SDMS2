@@ -1,0 +1,111 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
+<h1> Student Page</h1>
+
+<div class="card">
+    <div class="card-header">
+      <strong>Student id:{{students.Stud_ID}}</strong>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Student Info</h5>
+      <p class="card-text">
+        
+   
+    <ul>
+       
+        <li>first name:{{students.FName}}</li>
+        <li>last name:{{students.LName}}</li>
+        <li>Department:{{students.Dept}}</li>
+        <li>Level:{{students.Levl}}</li>
+        <li>Phone number:{{students.Phone_No}}</li>
+        <li>Next of kin :{{students.Next_of_Kin}}</li>
+        <li>Phone number of next of kin:{{students.Next_of_Kin_Phone_No}}</li>
+    </ul>
+    
+      </p>
+    </div>
+  </div>
+<br/>
+<br/>
+<br/>
+<div class="card">
+  <div class="card-header">
+    <strong>Incident Details</strong>
+  </div>
+  <div class="card-body">
+    <u><h5 class="card-title">Details</h5></u>
+    <p class="card-text">
+      {% for incident in incidents %}
+          <p>{{ incident.Descr }}</p>
+          <!-- Add more fields as needed -->
+      
+      {% endfor %}
+    </p>
+  </div>
+  <div class="card-body">
+    <u><h5 class="card-title">Location</h5></u>
+    <p class="card-text">
+      {% for incident in incidents %}
+          <p>Location: {{ incident.Location }}</p>
+          <!-- Add more fields as needed -->
+      
+      {% endfor %}
+    </p>
+  </div>
+  <div class="card-body">
+    <u><h5 class="card-title">Date</h5></u>
+    <p class="card-text">
+      {% for incident in incidents %}
+          <p>Date of occurrence: {{ incident.Date_of_Occurence }}</p>
+          <!-- Add more fields as needed -->
+      
+      {% endfor %}
+    </p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Evidence</h5>
+    <p class="card-text">
+      {% for evi in evidence %}
+      <p>Description: {{ evi.Details }}</p>
+      <!-- Add more fields as needed -->
+  
+      {% endfor %}
+     
+    </p>
+  </div>
+  <div class="card-body">
+    <u><h5 class="card-title">Judgement</h5></u>
+    <p class="card-text">
+      <h6> Judgement to be passed:</h6> {% for disc in discipline %}
+      <p>Description: {{ disc.Penance_Details }}</p>
+      <!-- Add more fields as needed -->
+  
+  {% endfor %}
+      <br/>
+      <h6>Date of hearing:</h6>{% for disc in discipline %}
+      <p>Description: {{ disc.Date_of_Hearing }}</p>
+      <!-- Add more fields as needed -->
+  
+  {% endfor %}
+  
+    </p>
+  </div>
+  <div class="card-body">
+    <u><h5 class="card-title">Notification</h5></u>
+    <p class="card-text">
+      {% for rec in record %}
+      <p>Case: {{ rec.Case_Status}}</p>
+      <!-- Add more fields as needed -->
+  
+  {% endfor %}
+
+     
+    </p>
+  </div>
+</div>
+
+
+{% endblock %}
+

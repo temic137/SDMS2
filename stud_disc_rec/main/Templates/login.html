@@ -1,0 +1,33 @@
+{%extends 'base.html' %}
+
+{% block title %}Student Login{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="col-md-6 offset-md-3" style="margin-top: 200px; margin-left: 500px;">
+        <h2>STUDENT LOGIN</h2>
+    <form method="post" action="{% url 'student_login' %}">
+        {% csrf_token %}
+        {{form}}
+        <div style=" width:300px;border-radius: 10px;">
+            <b><label for="stud_id">STUDENT ID:</label></b>
+        <input type="text" name="stud_id" required class="form-control">
+        <br>
+        <br/>
+        <br/>
+        <b><label for="password">PASSWORD:</label></b>
+        <input type="password" name="password" required class="form-control">
+        <br>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-secondary">Login</button>
+        </div>
+        
+    </form>
+    </div>
+    
+{% endblock %}
+
+style="width:700px; height:700px;position: relative; display:flex; justify-content: center; align-items: center; margin: 0 auto;"
